@@ -1,0 +1,32 @@
+#quote-box {
+    background-color: blue;
+    width: 30%;
+    margin: auto;
+    padding: 100px;
+    border-style: solid;
+    border-radius: 20px;
+    height: auto;
+}
+#quote-text {
+    font-size: 50px;
+}
+#quote-author {
+    font-size: 20px;
+}
+.buttons{
+    padding-top: 40px;
+    display: block;
+    margin: auto;
+}
+.button {
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    position: relative;
+    top: 2px;
+    border: solid;
+    border-radius: 10px;
+}
+#tweet-quote #tumblr-quote {
+    float: left;
+}
