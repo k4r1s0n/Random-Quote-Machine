@@ -1,18 +1,18 @@
 $(document).ready(() => {
-	let randomQuote = '';
-	let randomAuthor = '';
+	let currentQuote;
+	let currentAuthor;
 	const getQuote = () => {
-		let quotes = ['Hello', 'Hi', 'Yeah'];
-		let authors = ['A', 'B', 'C'];
-		let randomNum = Math.floor(Math.random()*quotes.length);
-		randomQuote = quotes[randomNum];
-		randomAuthor = authors[randomNum];
-		$('#text').text(randomQuote);
-		$('#author').text(randomAuthor);
+    const url = "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
+		$.getJSON(url, (data) => {
+			$("#text").html('"' + data.quoteText + '"');
+      $("#author").html(data.quoteAuthor);
+      currentQuote = data.quoteText;
+      currentAuthor = data.quoteAuthor;
+      $('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?text=' + currentQuote + " - " + currentAuthor);
+	    $('#tumblr-quote').attr('href', 'http://tumblr.com/widgets/share/tool?canonicalUrl=http://cats.com');
+    });
 	};
 	getQuote();
-	$('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?text=' + randomQuote + " - " + randomAuthor);
-	$('#tumblr-quote').attr('href', 'https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption='+encodeURIComponent(randomAuthor)+'&content=' + encodeURIComponent(randomQuote)+'&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button');
 	$('#new-quote').on('click', () => getQuote());
 });
 
