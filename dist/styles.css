@@ -2,19 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 body {
-    color: white;
-    background: black;
+    background-image: url('background.jpg');
+    background-attachment: fixed;
 }
 h1 {
     padding-top: 2.5%;
     font-family: 'Orbitron', sans-serif;
 }
 #quote-box {
-    background-color: blue;
+    background-color: rgba(179, 179, 200, 0.829);
     width: 60%;
     margin: auto;
     margin-top: 10%;
-    border-style: solid;
     border-radius: 20px;
     height: 80%;
     padding-left: 5%;
